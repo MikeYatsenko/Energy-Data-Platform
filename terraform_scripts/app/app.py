@@ -16,7 +16,7 @@ def lambda_handler(event, context):
     csv_string = body.read().decode('utf-8')
     df = pd.read_csv(StringIO(csv_string))
     df.drop('Unnamed: 0', axis=1, inplace=True)
-    engine = create_engine('postgresql://'db:password'@terraform-20230413194615999500000001'
+    engine = create_engine('postgresql://'db:password'@'
                            '.c0yflfvvzy5u.us-west-1.rds.amazonaws.com/postgres')
     df.to_sql('nuclear_data', engine, if_exists='append')
     return 'finished'
