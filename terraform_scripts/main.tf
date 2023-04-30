@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = 
-  secret_key = 
+  access_key = 'pass your key'
+  secret_key = 'pass you key'
   region = "us-west-1"
 
 }
@@ -201,8 +201,8 @@ resource "aws_db_instance" "RDSDatabase" {
   allocated_storage      = 10
   engine                 = "postgres"
   engine_version         = "13.7"
-  username               = "mikeyatsenko"
-  password               = "yatsenkomike31"
+  username               = "username"
+  password               = "password"
   publicly_accessible    = true
   skip_final_snapshot    = true
   instance_class         = "db.t3.micro"
