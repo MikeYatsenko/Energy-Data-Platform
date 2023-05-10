@@ -7,4 +7,4 @@ ver. 1:
 
 The current state of architecture (ver. 2):
 
-![alt text](https://github.com/MikeYatsenko/Energy-Data-Platform/blob/main/Diagram v2.png)
+![alt text](https://github.com/MikeYatsenko/Energy-Data-Platform/blob/main/Diagram_v2.png)
