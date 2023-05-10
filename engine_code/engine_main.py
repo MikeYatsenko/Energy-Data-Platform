@@ -9,6 +9,15 @@ from io import StringIO
 import time
 
 
+api_key = 'Gg24TpEKJrrcywG1cQlZxq4hPrln5uzu6YJaqtCK'
+regions = ['CAL', 'CENT', 'MIDA', 'NE', 'NY', 'NW', 'SE', 'SW', 'ERCO', 'TEX', 'TVA', 'ISNE']
+service_name = 's3'
+region_name = 'us-west-1'
+aws_access_key_id = 'AKIAUNZCPOZY535FSZXO'
+aws_secret_access_key = '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'
+bucket_name = 'nuc-s3-bucket'
+
+
 def get_list_urls(fuel_type_marker):
     urls = [f'https://api.eia.gov/v2/electricity/rto/fuel-type-data/data/?api_key={api_key}&frequency=hourly&data[' \
             f'0]=value&facets[respondent][]={region}&facets[fueltype][]={fuel_type_marker}&start=2023-02-20T00&end=2023-02-26T00&sort[0][' \
@@ -97,8 +106,6 @@ def pulling_function_wind():
 
 
 if __name__ == "__main__":
-    pulling_function_wind()
-    time.sleep(5)
     pulling_function_nuclear()
-    time.sleep(5)
     pulling_function_solar()
+
