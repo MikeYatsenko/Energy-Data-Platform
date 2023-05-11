@@ -1,10 +1,10 @@
 variable "aws_access_key" {
   type = string
-  default = "AKIAUNZCPOZY535FSZXO"
+  default = ""
 }
 
 variable "aws_access_secret_key" {
   type = string
-  default = "mXSO4jwjKTifjCPzySReRCbPefFMqckASINCwxw8"
+  default = ""
 }
 
