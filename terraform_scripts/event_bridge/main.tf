@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_event_rule" "EventRule" {
-  name = "event-rule"
+  name = "event-rule-nuclear"
   description   = "Object create events on bucket s3://${var.s3_bucket_id}"
   event_pattern = <<EOF
 {
@@ -23,5 +23,6 @@ EOF
 }
 
 resource "aws_cloudwatch_event_rule" "SolarTrigger" {
+  name = "scheduled-rule-solar"
   schedule_expression = "rate(30 minutes)"
 }

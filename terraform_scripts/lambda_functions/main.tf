@@ -39,10 +39,17 @@ EOF
 }
 
 # CloudWatch Log group to store Lambda logs
-resource "aws_cloudwatch_log_group" "CloudWatchLogGroup" {
+resource "aws_cloudwatch_log_group" "CloudWatchLogGroupNuclear" {
   name = "/aws/lambda/${aws_lambda_function.LambdaNuclear.function_name}"
   retention_in_days = 365
 }
+
+
+resource "aws_cloudwatch_log_group" "CloudWatchLogGroupSolar" {
+  name = "/aws/lambda/${aws_lambda_function.LambdaSolar.function_name}"
+  retention_in_days = 365
+}
+
 
 # Custom policy to read SQS queue and write to CloudWatch Logs with least privileges
 resource "aws_iam_policy" "SQSLambdaNuclearPolicy" {
@@ -101,6 +108,12 @@ resource "aws_lambda_event_source_mapping" "SQSLambdaSourceMapping" {
 
 resource "aws_lambda_function_event_invoke_config" "LambdaNuclearInvokeConfig" {
   function_name                = aws_lambda_function.LambdaNuclear.function_name
+  maximum_event_age_in_seconds = 60
+  maximum_retry_attempts       = 0
+}
+
+resource "aws_lambda_function_event_invoke_config" "LambdaSolarInvokeConfig" {
+  function_name                = aws_lambda_function.LambdaSolar.function_name
   maximum_event_age_in_seconds = 60
   maximum_retry_attempts       = 0
 }
